@@ -6,7 +6,7 @@
 /*   By: hurabe <hurabe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:36:20 by hurabe            #+#    #+#             */
-/*   Updated: 2024/08/24 20:57:43 by hurabe           ###   ########.fr       */
+/*   Updated: 2024/08/24 21:05:02 by hurabe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_error(int error)
 	if (error == PID_ERROR)
 		ft_printf("PID is wrong, Please check again PID!");
 	if (error == KILL_ERROR)
-		ft_printf("kell command error");
+		ft_printf("kill command error");
 	exit(EXIT_FAILURE);
 }
 
