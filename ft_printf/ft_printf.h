@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hurabe <hurabe@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: hurabe <hurabe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:48:42 by hurabe            #+#    #+#             */
-/*   Updated: 2024/06/28 14:55:50 by hurabe           ###   ########.fr       */
+/*   Updated: 2024/08/25 17:44:09 by hurabe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 //include
 # include <stdarg.h>
 # include <stdint.h>
-# include "libft/libft.h"
+# include "../libft/libft.h"
 
 //hex
 # define HEX_UPPER	"0123456789ABCDEF"

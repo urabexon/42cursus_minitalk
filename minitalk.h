@@ -6,19 +6,15 @@
 /*   By: hurabe <hurabe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:36:18 by hurabe            #+#    #+#             */
-/*   Updated: 2024/08/21 19:09:24 by hurabe           ###   ########.fr       */
+/*   Updated: 2024/08/25 17:58:38 by hurabe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINITALK_H
 # define MINITALK_H
 
-# include <signal.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <limits.h>
-# include "libft.h"
-# include "ft_printf.h"
+# include "signal.h"
+# include "../ft_printf/ft_printf.h"
 
 typedef struct s_global
 {
