@@ -6,7 +6,7 @@
 /*   By: hurabe <hurabe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:36:20 by hurabe            #+#    #+#             */
-/*   Updated: 2024/08/24 21:05:02 by hurabe           ###   ########.fr       */
+/*   Updated: 2024/08/25 20:37:06 by hurabe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,19 @@ void	ft_error(int error)
 	if (error == KILL_ERROR)
 		ft_printf("kill command error");
 	exit(EXIT_FAILURE);
+}
+
+void	output_char(void)
+{
+	char	temp_char;
+
+	temp_char = g_state.current_char;
+	write(1, &temp_char, 1);
+}
+
+void	signal_handler(int signum, siginfo_t *info , void *context)
+{
+	
 }
 
 int	main(void)
