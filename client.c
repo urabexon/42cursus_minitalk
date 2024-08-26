@@ -6,7 +6,7 @@
 /*   By: hurabe <hurabe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:36:12 by hurabe            #+#    #+#             */
-/*   Updated: 2024/08/25 20:59:32 by hurabe           ###   ########.fr       */
+/*   Updated: 2024/08/26 20:39:15 by hurabe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,40 @@ void	handle_check(int sig)
 
 void	send_signal(int	s_pid, char c)
 {
-	
+	int	sig;
+	int	i;
+
+	i = 7;
+	while (i >= 7)
+	{
+		if (c >> i & 1)
+			sig = SIGUSR1;
+		else
+			sig = SIGUSR2;
+		g_check = false;
+		if (kill(s_pid, sig) == -1)
+			ft_error(KILL_ERROR);
+		while (g_check == false)
+			usleep(50);
+		i--;
+	}
 }
 
 int	check_pid(char	*c_pid)
 {
-	
+	int	i_pid;
+
+	i_pid = ft_atoi(c_pid);
+	if (i_pid <= 1)
+		ft_error(PID_ERROR);
+	return (i_pid);
 }
 
 int	main(int argc, char **argv)
 {
-	size_t i;
-	size_t len;
-	int	i_pid;
+	size_t	i;
+	size_t	len;
+	int		i_pid;
 
 	if (argc != 3)
 		ft_error(INPUT_ERROR);
