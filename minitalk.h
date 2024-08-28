@@ -6,7 +6,7 @@
 /*   By: hurabe <hurabe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:36:18 by hurabe            #+#    #+#             */
-/*   Updated: 2024/08/26 15:36:24 by hurabe           ###   ########.fr       */
+/*   Updated: 2024/08/28 21:30:42 by hurabe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "signal.h"
 # include "ft_printf/ft_printf.h"
 
+/// @brief 
 typedef struct s_global
 {
 	volatile int	client_pid;

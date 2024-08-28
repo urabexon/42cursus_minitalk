@@ -6,13 +6,21 @@
 /*   By: hurabe <hurabe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:36:12 by hurabe            #+#    #+#             */
-/*   Updated: 2024/08/28 21:14:53 by hurabe           ###   ########.fr       */
+/*   Updated: 2024/08/28 21:29:01 by hurabe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
 volatile sig_atomic_t	g_check = false;
+
+void	handle_check(int sig)
+{
+	if (sig == SIGUSR1)
+	{
+		g_check = true;
+	}
+}
 
 void	ft_error(int error)
 {
@@ -25,13 +33,6 @@ void	ft_error(int error)
 	exit(EXIT_FAILURE);
 }
 
-void	handle_check(int sig)
-{
-	if (sig == SIGUSR1)
-	{
-		g_check = true;
-	}
-}
 
 void	send_signal(int s_pid, char c)
 {
@@ -39,7 +40,7 @@ void	send_signal(int s_pid, char c)
 	int	i;
 
 	i = 7;
-	while (i >= 7)
+	while (i >= 0)
 	{
 		if (c >> i & 1)
 			sig = SIGUSR1;
@@ -54,7 +55,7 @@ void	send_signal(int s_pid, char c)
 	}
 }
 
-int	check_pid(char	*c_pid)
+int	check_pid(char *c_pid)
 {
 	int	i;
 	int	len;
