@@ -6,7 +6,7 @@
 /*   By: hurabe <hurabe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:36:12 by hurabe            #+#    #+#             */
-/*   Updated: 2024/08/28 16:24:23 by hurabe           ###   ########.fr       */
+/*   Updated: 2024/08/28 21:14:53 by hurabe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,18 @@ void	send_signal(int s_pid, char c)
 
 int	check_pid(char	*c_pid)
 {
+	int	i;
+	int	len;
 	int	i_pid;
 
+	len = ft_strlen(c_pid);
+	i = 0;
+	while (i < len)
+	{
+		if (!ft_isdigit(c_pid[i]))
+			ft_error(PID_ERROR);
+		i++;
+	}
 	i_pid = ft_atoi(c_pid);
 	if (i_pid <= 1)
 		ft_error(PID_ERROR);
