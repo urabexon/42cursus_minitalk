@@ -6,13 +6,12 @@
 /*   By: hurabe <hurabe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:36:12 by hurabe            #+#    #+#             */
-/*   Updated: 2024/08/26 20:39:15 by hurabe           ###   ########.fr       */
+/*   Updated: 2024/08/28 16:24:23 by hurabe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-/// @brief 
 volatile sig_atomic_t	g_check = false;
 
 void	ft_error(int error)
@@ -34,7 +33,7 @@ void	handle_check(int sig)
 	}
 }
 
-void	send_signal(int	s_pid, char c)
+void	send_signal(int s_pid, char c)
 {
 	int	sig;
 	int	i;
