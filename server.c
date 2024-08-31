@@ -6,7 +6,7 @@
 /*   By: hurabe <hurabe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:36:20 by hurabe            #+#    #+#             */
-/*   Updated: 2024/08/28 21:25:23 by hurabe           ###   ########.fr       */
+/*   Updated: 2024/08/31 16:30:03 by hurabe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	signal_handler(int signum, siginfo_t *info, void *context)
 	if (g_state.client_pid == 0)
 		g_state.client_pid = info->si_pid;
 	if (signum == SIGUSR1)
-		g_state.current_char |= (1 << (7 - g_state.bit_position));
+		g_state.current_char |= (1 << (7 -g_state.bit_position));
 	g_state.bit_position++;
 	if (g_state.bit_position == 8)
 	{
@@ -51,9 +51,10 @@ void	signal_handler(int signum, siginfo_t *info, void *context)
 			g_state.client_pid = 0;
 		}
 		g_state.client_pid = 0;
+		g_state.current_char = 0;
 	}
-	if (g_state.client_pid > 0)
-		kill(g_state.client_pid, SIGUSR1);
+	//if (g_state.client_pid > 0)
+	//	kill(g_state.client_pid, SIGUSR1);
 }
 
 int	main(void)

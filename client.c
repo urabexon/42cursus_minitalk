@@ -6,20 +6,19 @@
 /*   By: hurabe <hurabe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:36:12 by hurabe            #+#    #+#             */
-/*   Updated: 2024/08/29 20:50:05 by hurabe           ###   ########.fr       */
+/*   Updated: 2024/08/31 16:29:00 by hurabe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-volatile sig_atomic_t	g_acknowledgement = false;
+//volatile sig_atomic_t	g_acknowledgement = false;
 
-void	handle_acknowledgement(int sig)
+void	handle_check(int sig)
 {
-	if (sig == SIGUSR1)
-	{
-		g_acknowledgement = true;
-	}
+	(void)sig;
+	ft_printf("Client, Finish!");
+	exit(0);
 }
 
 void	ft_error(int error)
@@ -45,13 +44,10 @@ void	send_signal(int s_pid, char c)
 			sig = SIGUSR1;
 		else
 			sig = SIGUSR2;
-		g_acknowledgement = false;
+		//g_acknowledgement = false;
 		if (kill(s_pid, sig) == -1)
 			ft_error(KILL_ERROR);
-		while (g_acknowledgement == false)
-		{
-			usleep(100);
-		}
+		usleep(200);
 		i--;
 	}
 }
@@ -86,12 +82,13 @@ int	main(int argc, char **argv)
 		ft_error(INPUT_ERROR);
 	i_pid = check_pid(argv[1]);
 	len = ft_strlen(argv[2]);
-	signal(SIGUSR1, handle_acknowledgement);
+	signal(SIGUSR1, handle_check);
 	i = 0;
 	while (i <= len)
 	{
 		send_signal(i_pid, argv[2][i]);
 		i++;
 	}
+	send_signal(i_pid, '\0');
 	return (0);
 }
